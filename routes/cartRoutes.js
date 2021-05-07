@@ -5,5 +5,6 @@ const authMiddleware = require('../middleware/AuthMiddleware');
 
 router.post('/', authMiddleware, cartController.recieveCart);
 router.get('/', authMiddleware, cartController.sendCart);
+router.post('/orderstatus', authMiddleware, cartController.orderStatus);
 
 module.exports = router;
