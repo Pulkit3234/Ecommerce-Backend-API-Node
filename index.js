@@ -3,8 +3,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Product = require('./models/Product');
-const sampleProducts = require('./data/Products');
 const authRoutes = require('./routes/authRoutes');
+
+const cartRoutes = require('./routes/cartRoutes');
 
 
 const app = express();
@@ -37,6 +38,7 @@ app.get('/product/:id', async (req, res, next) => {
 
 
 app.use('/', authRoutes);
+app.use('/cart', cartRoutes);
 
 
 const PORT = process.env.PORT || 8000;

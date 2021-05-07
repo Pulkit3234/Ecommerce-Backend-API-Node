@@ -7,15 +7,21 @@ const orderSchema = new Schema(
 			type: Schema.Types.ObjectId,
 			required: true,
 		},
-		orderItems: [
+		cartItems: [
 			{
 				name: { type: String },
 				qty: { type: Number },
 				image: { type: String },
 				price: { type: String },
+				brand: { type: String },
+				numReviews: { type: String },
+				description: { type: String },
+				countInStock: { type: Number },
+				
 			},
 		],
 		totalPrice: { type: Number },
+		totalItems : {type : Number},
 		shippingAddress: {
 			address: { type: String },
 			city: { type: String },
@@ -38,6 +44,10 @@ const orderSchema = new Schema(
 		paidAt: {
 			type: Date,
 		},
+		orderStatus: {
+			type: String,
+			default : 'pending',
+		}
 	},
 	{ timestamps: true }
 );
